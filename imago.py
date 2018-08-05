@@ -28,7 +28,7 @@ def image_row(table, filename):
 	conn = sqlite3.connect('metadata.db')
 	conn.text_factory = str
 	c = conn.cursor()
-	c.execute("INSERT INTO %s (filename) VALUES (?)"%(table), (filename,))
+	c.execute("INSERT INTO %s (filename) VALUES (?)"%(table), (os.path.basename(filename),))
 	conn.commit()
 	c.close()
 	return 1
@@ -63,8 +63,7 @@ def list_files(directory, filetype):
 
 # Extraction of all exif data
 def extract_info(filename):
-	print(os.path.basename(filename))
-	print ("Processing %s" % (filename,))
+	print ("Processing %s" % (os.path.basename(filename,)))
 	conn = sqlite3.connect('metadata.db')
 	c = conn.cursor()
 	f = open(filename,'rb')
@@ -79,7 +78,7 @@ def extract_info(filename):
 				conn.commit()
 			except:
 		    		pass
-			query = 'UPDATE exifdata SET "%s"="%s" WHERE filename = "%s";' % (tag_key,tags[tag],filename)
+			query = 'UPDATE exifdata SET "%s"="%s" WHERE filename = "%s";' % (tag_key,tags[tag],os.path.basename(filename))
 			c.execute(query)
 			conn.commit()
 	except:
@@ -95,7 +94,7 @@ def main():
 	parser.add_argument('-i','--input', help='input directory path', type=str, required=True)
 	parser.add_argument('-o','--output', help='output directory path', type=str)
 	parser.add_argument('-s','--sqli', help='Keep SQLite file', type=str, choices=["yes"])
-	parser.add_argument('-t','--type', help='image type, can be JPEG or TIFF, if this argument it is not provided, imago will process all the images', type=str, choices=["jpeg","tiff"])
+	parser.add_argument('-t','--type', help='image type, can be JPEG or TIFF, if this argument it is not provided, imago will process all the image types(i.e. JPEG, TIFF)', type=str, choices=["jpeg","tiff"])
 	args = parser.parse_args()
 	filetype = ""
 

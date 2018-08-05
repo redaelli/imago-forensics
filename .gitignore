@@ -100,5 +100,11 @@ venv.bak/
 # mkdocs documentation
 /site
 
+# csv
+*.csv
+
+# sqlite
+*.db
+
 # mypy
 .mypy_cache/

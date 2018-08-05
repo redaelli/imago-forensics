@@ -1,6 +1,6 @@
 # imago-forensics 🕵️
 Imago is a python tool that extract digital evidence from images recursively.
-This  tool can be useful during a digital forensic investigation, where you have a lot of images and you need to extract metadata information in order to compare the images and find evidences.
+This  tool is useful throughout a digital forensic investigation. If you need to extract digital evidences and you have a lot of images, through this tool you will be able to compare them easily. Imago permits to extract the evidences into a CSV file or in a sqlite database.
 
 # Installation
 

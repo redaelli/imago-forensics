@@ -61,7 +61,7 @@ Where:
 | Filesystem metadata support  | ❌ |
 | Full GPS support  | ❌ |
 | XMP extraction  | ❌ |
-| XMP export  | ❌ |
+
 
 ## Copyright and Licenses
 Code copyright 2018 Redaelli.

@@ -65,7 +65,7 @@ Where:
 | Exif support  | ✔️ |
 | Sqlite export  | ✔️ |
 | md5, sha256, sha512  | ✔️ |
-| ELA | ❌ |
+| ELA | ✔️ BETA |
 | Filesystem metadata support  | ❌ |
 | Full GPS support  | ❌ |
 | XMP extraction  | ❌ |

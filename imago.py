@@ -18,7 +18,7 @@ def main():
 	parser.add_argument('-s','--sqli', help='Keep SQLite file', type=str, choices=["yes"])
 	parser.add_argument('-t','--type', help='Image type, can be JPEG or TIFF, if this argument it is not provided, imago will process all the image types(i.e. JPEG, TIFF)', type=str, choices=["jpeg","tiff"])
 	parser.add_argument('-d','--digest', help='Calculate hash digest', type=str, choices=["md5", "sha256", "sha512", "all"])
-	parser.add_argument('-e','--ela', help='Error Level Analysis, works only with JPEG. *BETA*', type=str, choices=["yes"])
+	parser.add_argument('-e','--ela', help='Generate Error Level Analysis image,It works only with JPEG. *BETA*', type=str, choices=["yes"])
 	args = parser.parse_args()
 	filetype = ""
 	if (args.type == "jpeg"):

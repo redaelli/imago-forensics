@@ -18,6 +18,7 @@ python 2.7
 exifread version 2.1.2
 python-magic version 0.4.15
 argparse version 1.2.1
+pillow version 2.7.0
 ```
 # Usage
 

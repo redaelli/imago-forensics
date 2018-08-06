@@ -30,15 +30,17 @@ optional arguments:
   -s {yes}, --sqli {yes}
                         Keep SQLite file
   -t {jpeg,tiff}, --type {jpeg,tiff}
-                        image type, can be JPEG or TIFF, if this argument it
+                        Image type, can be JPEG or TIFF, if this argument it
                         is not provided, imago will process all the image types(i.e. JPEG, TIFF)
+  -d {md5,sha256,sha512,all}, --digest {md5,sha256,sha512,all}
+                        Calculate hash digest
 ```
 The only required argument is -i which is the base directory
 
 # Example
 
 ```
-python imago.py -i /home/solvent/cases/c23/DCIM/ -o /home/solvent/cases/c23/ -s yes -t jpeg
+python imago.py -i /home/solvent/cases/c23/DCIM/ -o /home/solvent/cases/c23/ -s yes -t jpeg -d all
 ```
 
 Where:
@@ -46,6 +48,7 @@ Where:
 * -o path: the output directory where imago will save the CSV file, with the extracted metadata
 * -s yes: the temporary SQLite database will not be deleted after the processing.
 * -t jpeg: imago will search only for jpeg images.
+* -d all: imago will calculate md5, sha256, sha512 for the jpeg images.
 
 # ToDo
 
@@ -58,6 +61,7 @@ Where:
 | CSV export  | ✔️ |
 | Exif support  | ✔️ |
 | Sqlite export  | ✔️ |
+| md5, sha256, sha512  | ✔️ |
 | Filesystem metadata support  | ❌ |
 | Full GPS support  | ❌ |
 | XMP extraction  | ❌ |

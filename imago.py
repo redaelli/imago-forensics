@@ -18,6 +18,7 @@ def main():
 	parser.add_argument('-s','--sqli', help='Keep SQLite file', type=str, choices=["yes"])
 	parser.add_argument('-t','--type', help='Image type, can be JPEG or TIFF, if this argument it is not provided, imago will process all the image types(i.e. JPEG, TIFF)', type=str, choices=["jpeg","tiff"])
 	parser.add_argument('-d','--digest', help='Calculate hash digest', type=str, choices=["md5", "sha256", "sha512", "all"])
+	parser.add_argument('-e','--ela', help='Error Level Analysis, works only with JPEG. *BETA*', type=str, choices=["yes"])
 	args = parser.parse_args()
 	filetype = ""
 	if (args.type == "jpeg"):
@@ -26,6 +27,10 @@ def main():
 		filetype = "image/tiff"
 	else:
 		filetype = "image"
+	if args.output:
+		output_path = args.output
+	else:
+		output_path = "."
 	base_dir = args.input
 	helper.initialize_sqli()
 	image_list = list(helper.list_files(base_dir, filetype))
@@ -43,11 +48,10 @@ def main():
 			extractor.sha256(filename)
 			extractor.sha512(filename)
 		extractor.exif_info(filename)
+		if args.ela:
+			extractor.ela(filename,output_path)
 		print ("Processing of %s completed!" % (filename,))
-	if args.output:
-		helper.create_csv(args.output)
-	else:
-		helper.create_csv(".")
+		helper.create_csv(output_path)
 	if not args.sqli:
 		os.remove('metadata.db')
 	elif args.sqli and args.output:

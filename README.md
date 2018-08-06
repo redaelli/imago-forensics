@@ -1,6 +1,7 @@
 # imago-forensics 🕵️
 Imago is a python tool that extract digital evidences from images recursively.
 This  tool is useful throughout a digital forensic investigation. If you need to extract digital evidences and you have a lot of images, through this tool you will be able to compare them easily. Imago allows to extract the evidences into a CSV file or in a sqlite database.
+Imago offers also the possibility to calculate [Error Level Analysis] (https://blackhat.com/presentations/bh-dc-08/Krawetz/Whitepaper/bh-dc-08-krawetz-WP.pdf)
 
 # Installation
 
@@ -34,6 +35,8 @@ optional arguments:
                         is not provided, imago will process all the image types(i.e. JPEG, TIFF)
   -d {md5,sha256,sha512,all}, --digest {md5,sha256,sha512,all}
                         Calculate hash digest
+  -e {yes}, --ela {yes}
+                        Error Level Analysis, works only with JPEG. *BETA*
 ```
 The only required argument is -i which is the base directory
 

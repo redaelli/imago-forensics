@@ -2,3 +2,4 @@ exifread==2.1.2
 python-magic==0.4.15
 argparse==1.2.1
 pillow==2.7.0
+nudepy==0.4

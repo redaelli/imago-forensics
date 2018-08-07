@@ -1,6 +1,6 @@
 # imago-forensics 🕵️
 Imago is a python tool that extract digital evidences from images recursively.
-This  tool is useful throughout a digital forensic investigation. If you need to extract digital evidences and you have a lot of images, through this tool you will be able to compare them easily. Imago allows to extract the evidences into a CSV file or in a sqlite database. If in a JPEG exif are present GPS coordinates, Imago can extract the longitude and latitude and it can convert them to degrees. 
+This  tool is useful throughout a digital forensic investigation. If you need to extract digital evidences and you have a lot of images, through this tool you will be able to compare them easily. Imago allows to extract the evidences into a CSV file or in a sqlite database. If in a JPEG exif are present GPS coordinates, Imago can extract the longitude and latitude and it can convert them to degrees.
 Imago offers also the possibility to calculate [Error Level Analysis](https://blackhat.com/presentations/bh-dc-08/Krawetz/Whitepaper/bh-dc-08-krawetz-WP.pdf), this functionality is in BETA.
 
 # Installation
@@ -23,7 +23,7 @@ pillow version 2.7.0
 # Usage
 
 ```
-usage: imago.py [-h] -i INPUT [-x] [-g] [-e] [-d {md5,sha256,sha512,all}]
+usage: imago.py [-h] -i INPUT [-x] [-g] [-e] [-n] [-d {md5,sha256,sha512,all}]
                 [-o OUTPUT] [-s] [-t {jpeg,tiff}]
 
 optional arguments:
@@ -35,6 +35,7 @@ optional arguments:
                         metadata from images (if any)It works only with JPEG.
   -e, --ela             Extract, Error Level Analysis image,It works only with
                         JPEG. *BETA*
+  -n, --nude            Detect Nudity, It works only with JPEG, *BETA*
   -d {md5,sha256,sha512,all}, --digest {md5,sha256,sha512,all}
                         Calculate hash digest
   -o OUTPUT, --output OUTPUT
@@ -64,7 +65,7 @@ Where:
 * -t jpeg: imago will search only for jpeg images.
 * -d all: imago will calculate md5, sha256, sha512 for the jpeg images.
 
-# ToDo:
+# Features:
 
 | Task          | Status        |
 | ------------- |:-------------:|
@@ -78,6 +79,12 @@ Where:
 | md5, sha256, sha512  | ✔️ |
 | ELA | ✔️ BETA |
 | Full GPS support  | ✔️ |
+| Nudity detection  | ✔️ BETA|
+
+
+# ToDo
+| Task          | Status        |
+| ------------- |:-------------:|
 | Filesystem metadata support  | ❌ |
 | Extract images from PDF | ❌ |
 | XMP support  | ❌ |

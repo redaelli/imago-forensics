@@ -5,6 +5,8 @@ import hashlib
 import magic
 from PIL import Image, ImageChops, ImageEnhance
 from PIL.ExifTags import TAGS, GPSTAGS
+import nude
+from nude import Nude
 
 # Extraction of all exif data
 def exif_info(filename):
@@ -113,4 +115,18 @@ def PIL_exif_data_GPS(filename):
         helper.sqlite_insert("Parsed_GPS_Langitude",str(longitude),os.path.basename(filename))
     else:
         print "GPS works only with JPEG"
+    return None
+
+
+# based on nude.py
+# https://github.com/hhatto/nude.py
+# BETA
+def detect_nudity(filename):
+    if magic.from_file(filename, mime=True) == "image/jpeg":
+        print ("Check if the image contains nudity: %s" % (filename,))
+        n = Nude(filename)
+        n.parse()
+        helper.sqlite_insert("Nudity",str(n.result),os.path.basename(filename))
+    else:
+        print "Nudity Detection works only with JPEG"
     return None

@@ -64,7 +64,7 @@ Where:
 * -t jpeg: imago will search only for jpeg images.
 * -d all: imago will calculate md5, sha256, sha512 for the jpeg images.
 
-# ToDo
+# ToDo:
 
 | Task          | Status        |
 | ------------- |:-------------:|
@@ -79,7 +79,8 @@ Where:
 | ELA | ✔️ BETA |
 | Full GPS support  | ✔️ |
 | Filesystem metadata support  | ❌ |
-| XMP extraction  | ❌ |
+| Extract images from PDF | ❌ |
+| XMP support  | ❌ |
 
 
 ## Copyright and Licenses

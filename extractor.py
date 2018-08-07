@@ -108,8 +108,9 @@ def PIL_exif_data_GPS(filename):
                 longitude = helper.to_degress(gps_longitude)
                 if gps_longitude_ref != "E":
                     longitude = 0 - longitude
-        helper.sqlite_insert("Parsed_GPS_Latitude",latitude,os.path.basename(filename))
-        helper.sqlite_insert("Parsed_GPS_Langitude",longitude,os.path.basename(filename))
+
+        helper.sqlite_insert("Parsed_GPS_Latitude",str(latitude),os.path.basename(filename))
+        helper.sqlite_insert("Parsed_GPS_Langitude",str(longitude),os.path.basename(filename))
     else:
         print "GPS works only with JPEG"
     return None

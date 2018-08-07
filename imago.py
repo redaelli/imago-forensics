@@ -39,10 +39,11 @@ def main():
 		helper.initialize_sqli()
 		image_list = list(helper.list_files(base_dir, filetype))
 		for filename in image_list:
+			print ("Processing %s" % (filename,))
+			# Creation of the SQLite row for the file
+			helper.image_row("evidences", filename)
 			if args.gps:
 				extractor.PIL_exif_data_GPS(filename)
-			print ("Processing %s" % (filename,))
-			helper.image_row("evidences", filename)
 			if args.digest == "md5":
 				extractor.md5(filename)
 			elif args.digest == "sha256":
@@ -58,7 +59,9 @@ def main():
 			if args.ela:
 				extractor.ela(filename,output_path)
 			print ("Processing of %s completed!" % (filename,))
-			helper.create_csv(output_path)
+			
+		# Creation of the file CSV
+		helper.create_csv(output_path)
 		if not args.sqli:
 			os.remove('metadata.db')
 		elif args.sqli and args.output:

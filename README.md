@@ -23,34 +23,44 @@ pillow version 2.7.0
 # Usage
 
 ```
-usage: imago.py [-h] -i INPUT [-o OUTPUT] [-s {yes}] [-t {jpeg,tiff}]
+usage: imago.py [-h] -i INPUT [-x] [-g] [-e] [-d {md5,sha256,sha512,all}]
+                [-o OUTPUT] [-s] [-t {jpeg,tiff}]
 
 optional arguments:
   -h, --help            show this help message and exit
-  -o OUTPUT, --output OUTPUT
-                        output directory path
-  -s {yes}, --sqli {yes}
-                        Keep SQLite file
-  -t {jpeg,tiff}, --type {jpeg,tiff}
-                        Image type, can be JPEG or TIFF, if this argument it
-                        is not provided, imago will process all the image types(i.e. JPEG, TIFF)
+  -i INPUT, --input INPUT
+                        Input directory path
+  -x, --exif            Extract exif metadata
+  -g, --gps             Extract, parse and convert to coordinates, GPS exif
+                        metadata from images (if any)It works only with JPEG.
+  -e, --ela             Extract, Error Level Analysis image,It works only with
+                        JPEG. *BETA*
   -d {md5,sha256,sha512,all}, --digest {md5,sha256,sha512,all}
                         Calculate hash digest
-  -e {yes}, --ela {yes}
-                        Error Level Analysis, works only with JPEG. *BETA*
+  -o OUTPUT, --output OUTPUT
+                        Output directory path
+  -s, --sqli            Keep SQLite file after the computation
+  -t {jpeg,tiff}, --type {jpeg,tiff}
+                        Select the image, this flag can be JPEG or TIFF, if
+                        this argument it is not provided, imago will process
+                        all the image types(i.e. JPEG, TIFF)
+
+
 ```
-The only required argument is -i which is the base directory
+The only required argument is -i which is the base directory from which imago will start to search for image file.
+You should also provide at least one type of extraction (i.e. exif, data, gps, digest).
 
 # Example
 
 ```
-python imago.py -i /home/solvent/cases/c23/DCIM/ -o /home/solvent/cases/c23/ -s yes -t jpeg -d all
+python imago.py -i /home/solvent/cases/c23/DCIM/ -o /home/solvent/cases/c23/ -x -s -t jpeg -d all
 ```
 
 Where:
 * -i path: is the base directory, where imago will search for file
 * -o path: the output directory where imago will save the CSV file, with the extracted metadata
-* -s yes: the temporary SQLite database will not be deleted after the processing.
+* -x : imago will extract EXIF metadata.
+* -s: the temporary SQLite database will not be deleted after the processing.
 * -t jpeg: imago will search only for jpeg images.
 * -d all: imago will calculate md5, sha256, sha512 for the jpeg images.
 
@@ -67,8 +77,8 @@ Where:
 | Sqlite export  | ✔️ |
 | md5, sha256, sha512  | ✔️ |
 | ELA | ✔️ BETA |
+| Full GPS coordinates extraction support  | ✔️ |
 | Filesystem metadata support  | ❌ |
-| Full GPS support  | ❌ |
 | XMP extraction  | ❌ |
 
 

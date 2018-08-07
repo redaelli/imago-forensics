@@ -4,10 +4,11 @@ import helper
 import hashlib
 import magic
 from PIL import Image, ImageChops, ImageEnhance
+from PIL.ExifTags import TAGS, GPSTAGS
 
 # Extraction of all exif data
 def exif_info(filename):
-    print ("Extracting EXIF data from: %s" % (filename,))
+    print ("Extraction of EXIF data from: %s" % (filename,))
     f = open(filename,'rb')
     tags = exifread.process_file(f)
     for tag in tags.keys():
@@ -16,7 +17,6 @@ def exif_info(filename):
             tag_key = tag.split(" ", 1)[1]
             helper.sqlite_insert(tag_key,tags[tag],os.path.basename(filename))
     return filename
-
 
 def md5(filename):
     print ("Calculating md5 of: %s" % (filename,))
@@ -49,7 +49,7 @@ def sha512(filename):
     return sha512
 
 
-#from a gist by: https://github.com/ewencp
+#modified version of a gist by: https://github.com/ewencp
 ##BETA##
 def ela(filename, output_path):
     print "****ELA is in BETA****"
@@ -68,4 +68,48 @@ def ela(filename, output_path):
         ela_image.save(ela)
         os.remove(tmp_img)
     else:
-        print "ELA works only for JPEG"
+        print "ELA works only with JPEG"
+
+
+#Modified version of a gist by: https://github.com/erans
+def PIL_exif_data_GPS(filename):
+    if magic.from_file(filename, mime=True) == "image/jpeg":
+        print ("Extraction of GPS data from: %s" % (filename,))
+        image = Image.open(filename)
+        exif_data = {}
+        exif = image._getexif()
+        latitude = None
+        longitude = None
+        if exif:
+            for tag, value in exif.items():
+                decoded = TAGS.get(tag, tag)
+                if decoded == "GPSInfo":
+                    gps_data = {}
+                    for t in value:
+                        sub_decoded = GPSTAGS.get(t, t)
+                        gps_data[sub_decoded] = value[t]
+                    exif_data[decoded] = gps_data
+                else:
+                    exif_data[decoded] = value
+        if "GPSInfo" in exif_data:
+            gps_info = exif_data["GPSInfo"]
+            if "GPSLatitude" in gps_info:
+                gps_latitude = gps_info["GPSLatitude"]
+            if "GPSLatitudeRef" in gps_info:
+                gps_latitude_ref = gps_info["GPSLatitudeRef"]
+            if "GPSLongitude" in gps_info:
+                gps_longitude = gps_info["GPSLongitude"]
+            if "GPSLongitudeRef" in gps_info:
+                gps_longitude_ref = gps_info["GPSLongitudeRef"]
+            if gps_latitude and gps_latitude_ref and gps_longitude and gps_longitude_ref:
+                latitude = helper.to_degress(gps_latitude)
+                if gps_latitude_ref != "N":
+                    latitude = 0 - latitude
+                longitude = helper.to_degress(gps_longitude)
+                if gps_longitude_ref != "E":
+                    longitude = 0 - longitude
+        helper.sqlite_insert("Parsed_GPS_Latitude",latitude,os.path.basename(filename))
+        helper.sqlite_insert("Parsed_GPS_Langitude",longitude,os.path.basename(filename))
+    else:
+        print "GPS works only with JPEG"
+    return None

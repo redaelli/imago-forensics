@@ -1,3 +1,7 @@
+[![forthebadge](https://forthebadge.com/images/badges/made-with-python.svg)](https://forthebadge.com) [![forthebadge](https://forthebadge.com/images/badges/built-with-love.svg)](https://forthebadge.com)
+
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com) [![GitHub license](https://img.shields.io/github/license/Day8/re-frame.svg?style=flat-square)](license.txt) 
+
 # imago-forensics 🕵️
 Imago is a python tool that extract digital evidences from images recursively.
 This  tool is useful throughout a digital forensic investigation. If you need to extract digital evidences and you have a lot of images, through this tool you will be able to compare them easily. Imago allows to extract the evidences into a CSV file or in a sqlite database. If in a JPEG exif are present GPS coordinates, Imago can extract the longitude and latitude and it can convert them to degrees.
@@ -51,7 +55,7 @@ optional arguments:
 The only required argument is -i which is the base directory from which imago will start to search for image file.
 You should also provide at least one type of extraction (i.e. exif, data, gps, digest).
 
-# Example
+# Example:
 
 ```
 python imago.py -i /home/solvent/cases/c23/DCIM/ -o /home/solvent/cases/c23/ -x -s -t jpeg -d all
@@ -82,7 +86,7 @@ Where:
 | Nudity detection  | ✔️ BETA|
 
 
-# ToDo
+# ToDo:
 | Task          | Status        |
 | ------------- |:-------------:|
 | Filesystem metadata support  | ❌ |
@@ -90,6 +94,6 @@ Where:
 | XMP support  | ❌ |
 
 
-## Copyright and Licenses
+## 📑 Copyright and Licenses
 Code copyright 2018 Redaelli.
 Code released under the [MIT license](LICENSE).

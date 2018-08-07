@@ -78,7 +78,6 @@ Where:
 | Tiff support  | ✔️ |
 | Recursive directory navigation  | ✔️ |
 | CSV export  | ✔️ |
-| Exif support  | ✔️ |
 | Sqlite export  | ✔️ |
 | md5, sha256, sha512  | ✔️ |
 | ELA | ✔️ BETA |

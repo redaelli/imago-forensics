@@ -1,18 +1,18 @@
-# 🕵️ imago-forensics
+# imago-forensics 🕵️
 Imago is a python tool that extract digital evidences from images recursively.
 This  tool is useful throughout a digital forensic investigation. If you need to extract digital evidences and you have a lot of images, through this tool you will be able to compare them easily. Imago allows to extract the evidences into a CSV file or in a sqlite database. If in a JPEG exif are present GPS coordinates, Imago can extract the longitude and latitude and it can convert them to degrees.
 Imago offers also the possibility to calculate [Error Level Analysis](https://blackhat.com/presentations/bh-dc-08/Krawetz/Whitepaper/bh-dc-08-krawetz-WP.pdf), this functionality is in BETA.
 
-# ⭐ Installation
+# Installation
 
-## 📋 Installation of the requirements via pip:
+## Installation of the requirements via pip:
 
 To install imago requirements simply run:
 ```
 pip install -r requirements.txt
 
 ```
-## 📋 Requirements:
+## Requirements:
 ```
 python 2.7
 exifread version 2.1.2
@@ -20,7 +20,7 @@ python-magic version 0.4.15
 argparse version 1.2.1
 pillow version 2.7.0
 ```
-# ▶ Usage
+# Usage
 
 ```
 usage: imago.py [-h] -i INPUT [-x] [-g] [-e] [-n] [-d {md5,sha256,sha512,all}]
@@ -51,7 +51,7 @@ optional arguments:
 The only required argument is -i which is the base directory from which imago will start to search for image file.
 You should also provide at least one type of extraction (i.e. exif, data, gps, digest).
 
-# 🚀 Example:
+# Example:
 
 ```
 python imago.py -i /home/solvent/cases/c23/DCIM/ -o /home/solvent/cases/c23/ -x -s -t jpeg -d all
@@ -65,7 +65,7 @@ Where:
 * -t jpeg: imago will search only for jpeg images.
 * -d all: imago will calculate md5, sha256, sha512 for the jpeg images.
 
-# 👌 Features:
+# Features:
 
 | Task          | Status        |
 | ------------- |:-------------:|
@@ -82,7 +82,7 @@ Where:
 | Nudity detection  | ✔️ BETA|
 
 
-# 📝 ToDo:
+# ToDo:
 | Task          | Status        |
 | ------------- |:-------------:|
 | Filesystem metadata support  | ❌ |

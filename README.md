@@ -116,10 +116,11 @@ Where:
 
 # ToDo:
 
-**Test**
+
 
 | Task          | Status        |
 | ------------- |:-------------:|
+| **Test code** | ❌ |
 | Comments and Suggestions are welcome | 👍 |
 | Extract images from PDF | ❌ |
 | XMP support  | ❌ |

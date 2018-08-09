@@ -21,7 +21,7 @@ def basic_info(filename):
     helper.sqlite_insert("Last_Modification_Time_UTC",str(datetime.datetime.utcfromtimestamp(statinfo.st_mtime).strftime("%Y-%m-%d %H:%M:%S")),os.path.basename(filename))
     helper.sqlite_insert("Last_Access_Time_UTC",str(datetime.datetime.utcfromtimestamp(statinfo.st_atime).strftime("%Y-%m-%d %H:%M:%S")),os.path.basename(filename))
     helper.sqlite_insert("Creation_Time_UTC",str(datetime.datetime.utcfromtimestamp(statinfo.st_ctime).strftime("%Y-%m-%d %H:%M:%S")),os.path.basename(filename))
-
+    return statinfo, mime
 
 # Extraction of all exif data
 def exif_info(filename):
@@ -141,10 +141,12 @@ def detect_nudity(filename):
         print ("Check if the image contains nudity: %s" % (filename,))
         n = Nude(filename)
         n.parse()
-        helper.sqlite_insert("Nudity",str(n.result),os.path.basename(filename))
+        nudity = str(n.result)
+        helper.sqlite_insert("Nudity",nudity,os.path.basename(filename))
+        return nudity
     else:
         print "Nudity Detection works only with JPEG"
-    return None
+        return None
 
 #based on JohannesBuchner imagehash
 #https://github.com/JohannesBuchner/imagehash

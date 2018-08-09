@@ -23,7 +23,7 @@ $ python install.py build
 ```console
 $ python install.py install 
 ```
-4. Try if everything is working:
+4. Once installed, one new binary should be available: 
 
 ```console
 $ imago 
@@ -40,12 +40,12 @@ $ git clone https://github.com/redaelli/imago-forensics.git
 ```console
 $ pip install .
 ```
-3. Try if everything is working:
+3. Once installed, one new binary should be available: :
 
 ```console
 $ imago 
 ```
-And then it should output the imago's banner:
+And then it should output the imago's banner
 
 
 ## Requirements:

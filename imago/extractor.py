@@ -16,7 +16,6 @@ def basic_info(filename):
     print ("Extraction of basic information: %s" % (filename,))
     statinfo = os.stat(filename)
     mime = magic.from_file(filename, mime=True)
-    print mime
     helper.sqlite_insert("MIME",mime,os.path.basename(filename))
     helper.sqlite_insert("Size_Bytes",str(statinfo.st_size),os.path.basename(filename))
     helper.sqlite_insert("Last_Modification_Time_UTC",str(datetime.datetime.utcfromtimestamp(statinfo.st_mtime).strftime("%Y-%m-%d %H:%M:%S")),os.path.basename(filename))

@@ -1,6 +1,6 @@
 [![forthebadge](https://forthebadge.com/images/badges/made-with-python.svg)](https://forthebadge.com) [![forthebadge](https://forthebadge.com/images/badges/built-with-love.svg)](https://forthebadge.com)
 
-[![Requirements Status](https://requires.io/github/redaelli/imago-forensics/requirements.svg?branch=master)](https://requires.io/github/redaelli/imago-forensics/requirements/?branch=master)
+[![Build Status](https://travis-ci.org/redaelli/imago-forensics.svg?branch=master)](https://travis-ci.org/redaelli/imago-forensics) [![Requirements Status](https://requires.io/github/redaelli/imago-forensics/requirements.svg?branch=master)](https://requires.io/github/redaelli/imago-forensics/requirements/?branch=master)
 [![GitHub license](https://img.shields.io/github/license/Day8/re-frame.svg?style=flat-square)](LICENSE)
 # imago-forensics 🕵️
 Imago is a python tool that extract digital evidences from images recursively.

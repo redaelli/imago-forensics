@@ -1,7 +1,7 @@
 [![forthebadge](https://forthebadge.com/images/badges/made-with-python.svg)](https://forthebadge.com) [![forthebadge](https://forthebadge.com/images/badges/built-with-love.svg)](https://forthebadge.com)
 
 [![Requirements Status](https://requires.io/github/redaelli/imago-forensics/requirements.svg?branch=master)](https://requires.io/github/redaelli/imago-forensics/requirements/?branch=master)
-[![GitHub license](https://img.shields.io/github/license/Day8/re-frame.svg?style=flat-square)](LICENSE) 
+[![GitHub license](https://img.shields.io/github/license/Day8/re-frame.svg?style=flat-square)](LICENSE)
 # imago-forensics 🕵️
 Imago is a python tool that extract digital evidences from images recursively.
 This  tool is useful throughout a digital forensic investigation. If you need to extract digital evidences and you have a lot of images, through this tool you will be able to compare them easily. Imago allows to extract the evidences into a CSV file or in a sqlite database. If in a JPEG exif are present GPS coordinates, Imago can extract the longitude and latitude and it can convert them to degrees.
@@ -19,16 +19,20 @@ pip install -r requirements.txt
 ## Requirements:
 ```
 python 2.7
-exifread version 2.1.2
-python-magic version 0.4.15
-argparse version 1.2.1
-pillow version 2.7.0
+exifread 2.1.2
+python-magic 0.4.15
+argparse 1.4.0
+pillow 5.2.0
+nudepy 0.4
+imagehash 4.0
+
 ```
 # Usage
 
 ```
 usage: imago.py [-h] -i INPUT [-x] [-g] [-e] [-n] [-d {md5,sha256,sha512,all}]
-                [-o OUTPUT] [-s] [-t {jpeg,tiff}]
+                [-p {ahash,phash,dhash,whash,all}] [-o OUTPUT] [-s]
+                [-t {jpeg,tiff}]
 
 optional arguments:
   -h, --help            show this help message and exit
@@ -41,6 +45,8 @@ optional arguments:
                         JPEG. *BETA*
   -n, --nude            Detect Nudity, It works only with JPEG, *BETA*
   -d {md5,sha256,sha512,all}, --digest {md5,sha256,sha512,all}
+                        Calculate perceptual image hashing
+  -p {ahash,phash,dhash,whash,all}, --percentualhash {ahash,phash,dhash,whash,all}
                         Calculate hash digest
   -o OUTPUT, --output OUTPUT
                         Output directory path
@@ -49,6 +55,7 @@ optional arguments:
                         Select the image, this flag can be JPEG or TIFF, if
                         this argument it is not provided, imago will process
                         all the image types(i.e. JPEG, TIFF)
+
 
 
 ```
@@ -82,8 +89,12 @@ Where:
 | md5, sha256, sha512  | ✔️ |
 | ELA | ✔️ BETA |
 | Full GPS support  | ✔️ |
-| Nudity detection  | ✔️ BETA|
-
+| [Nudity detection](https://github.com/hhatto/nude.py) | ✔️ BETA|
+| [Perceptual Image Hashing](https://github.com/JohannesBuchner/imagehash) | ✔️|
+| [aHash](http://www.hackerfactor.com/blog/index.php?/archives/432-Looks-Like-It.html) | ✔️ |
+| [pHash](http://www.hackerfactor.com/blog/index.php?/archives/432-Looks-Like-It.html)| ✔️ |
+| [dHash](http://www.hackerfactor.com/blog/index.php?/archives/529-Kind-of-Like-That.html) | ✔️ |
+| [wHash](https://fullstackml.com/2016/07/02/wavelet-image-hash-in-python/)| ✔️ |
 
 # ToDo:
 | Task          | Status        |

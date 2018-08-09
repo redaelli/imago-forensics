@@ -5,6 +5,7 @@ import hashlib
 import magic
 from PIL import Image, ImageChops, ImageEnhance
 from PIL.ExifTags import TAGS, GPSTAGS
+import imagehash
 import nude
 from nude import Nude
 
@@ -130,3 +131,53 @@ def detect_nudity(filename):
     else:
         print "Nudity Detection works only with JPEG"
     return None
+
+#based on JohannesBuchner imagehash
+#https://github.com/JohannesBuchner/imagehash
+
+
+def ahash(filename):
+    if "image" in magic.from_file(filename, mime=True):
+        print ("Calculating aHash of: %s" % (filename,))
+        hash = imagehash.average_hash(Image.open(filename))
+        helper.sqlite_insert("aHash",str(hash),os.path.basename(filename))
+        return hash
+    else:
+        print "aHash works only with image file"
+        return None
+
+#based on JohannesBuchner imagehash
+#https://github.com/JohannesBuchner/imagehash
+def phash(filename):
+    if "image" in magic.from_file(filename, mime=True):
+        print ("Calculating pHash of: %s" % (filename,))
+        hash = imagehash.phash(Image.open(filename))
+        helper.sqlite_insert("pHash",str(hash),os.path.basename(filename))
+        return hash
+    else:
+        print "pHash works only with image file"
+        return None
+
+#based on JohannesBuchner imagehash
+#https://github.com/JohannesBuchner/imagehash
+def whash(filename):
+    if "image" in magic.from_file(filename, mime=True):
+        print ("Calculating wHash of: %s" % (filename,))
+        hash = imagehash.whash(Image.open(filename))
+        helper.sqlite_insert("wHash",str(hash),os.path.basename(filename))
+        return hash
+    else:
+        print "wHash works only with image file"
+        return None
+
+#based on JohannesBuchner imagehash
+#https://github.com/JohannesBuchner/imagehash
+def dhash(filename):
+    if "image" in magic.from_file(filename, mime=True):
+        print ("Calculating dHash Vertical of: %s" % (filename,))
+        hash = imagehash.average_hash(Image.open(filename))
+        helper.sqlite_insert("dHash",str(hash),os.path.basename(filename))
+        return hash
+    else:
+        print "dHash vertical works only with image file"
+        return None

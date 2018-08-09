@@ -3,3 +3,4 @@ python-magic==0.4.15
 argparse==1.4.0
 pillow==5.2.0
 nudepy==0.4
+imagehash==4.0

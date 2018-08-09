@@ -9,7 +9,8 @@ def main():
 ##################################################
 # imago.py                                       #
 # Digital evidences from images!                 #
-# Made with <3 by Matteo Redaelli aka solventred #
+# Made with <3 by Matteo Redaelli                #
+# Twitter: @solventred                           #
 ##################################################
 	"""
 	parser = argparse.ArgumentParser()
@@ -18,13 +19,14 @@ def main():
 	parser.add_argument('-g','--gps', help='Extract, parse and convert to coordinates, GPS exif metadata from images (if any)It works only with JPEG.', action='store_true')
 	parser.add_argument('-e','--ela', help='Extract, Error Level Analysis image,It works only with JPEG. *BETA*', action='store_true')
 	parser.add_argument('-n','--nude', help='Detect Nudity, It works only with JPEG, *BETA*', action='store_true')
-	parser.add_argument('-d','--digest', help='Calculate hash digest', type=str, choices=["md5", "sha256", "sha512", "all"])
+	parser.add_argument('-d','--digest', help='Calculate perceptual image hashing', type=str, choices=["md5", "sha256", "sha512", "all"])
+	parser.add_argument('-p','--percentualhash', help='Calculate hash digest', type=str, choices=["ahash", "phash", "dhash","whash","all"])
 	parser.add_argument('-o','--output', help='Output directory path', type=str)
 	parser.add_argument('-s','--sqli', help='Keep SQLite file after the computation', action='store_true')
 	parser.add_argument('-t','--type', help='Select the image, this flag can be JPEG or TIFF, if this argument it is not provided, imago will process all the image types(i.e. JPEG, TIFF)', type=str, choices=["jpeg","tiff"])
 	args = parser.parse_args()
 
-	if (args.exif or args.gps or args.ela or args.digest or args.nude):
+	if (args.exif or args.gps or args.ela or args.digest or args.nude or args.percentualhash):
 		filetype = ""
 		if (args.type == "jpeg"):
 			filetype = "image/jpeg"
@@ -47,6 +49,21 @@ def main():
 				extractor.detect_nudity(filename)
 			if args.gps:
 				extractor.PIL_exif_data_GPS(filename)
+
+			if args.percentualhash == "ahash":
+				extractor.ahash(filename)
+			elif args.percentualhash == "phash":
+				extractor.phash(filename)
+			elif args.percentualhash == "dhash":
+				extractor.dhash(filename)
+			elif args.percentualhash == "whash":
+				extractor.whash(filename)
+			elif args.percentualhash == "all":
+				extractor.ahash(filename)
+				extractor.phash(filename)
+				extractor.whash(filename)
+				extractor.dhash(filename)
+
 			if args.digest == "md5":
 				extractor.md5(filename)
 			elif args.digest == "sha256":

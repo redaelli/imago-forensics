@@ -7,15 +7,28 @@ Imago is a python tool that extract digital evidences from images recursively.
 This  tool is useful throughout a digital forensic investigation. If you need to extract digital evidences and you have a lot of images, through this tool you will be able to compare them easily. Imago allows to extract the evidences into a CSV file or in a sqlite database. If in a JPEG exif are present GPS coordinates, Imago can extract the longitude and latitude and it can convert them to degrees.
 Imago offers also the possibility to calculate Error Level Analysis, and to detect nudity these functionalities are in BETA.
 
-# Installation
+# Setup
 
-## Installation of the requirements via pip:
-
-To install imago requirements simply run:
+1. Clone the repository by:
 ```console
-pip install -r requirements.txt
-
+$ git clone https://github.com/redaelli/imago-forensics.git
 ```
+2. Build imago:
+```console
+$ python install.py build 
+```
+3. Install imago:
+```console
+$ python install.py install 
+```
+4. Try if everything is working:
+
+```console
+$ imago 
+```
+And then it should output the imago's banner:
+
+
 ## Requirements:
 ```
 python 2.7
@@ -65,7 +78,7 @@ You should also provide at least one type of extraction (i.e. exif, data, gps, d
 # Example:
 
 ```console
-python imago.py -i /home/solvent/cases/c23/DCIM/ -o /home/solvent/cases/c23/ -x -s -t jpeg -d all
+imago -i /home/solvent/cases/c23/DCIM/ -o /home/solvent/cases/c23/ -x -s -t jpeg -d all
 ```
 
 Where:

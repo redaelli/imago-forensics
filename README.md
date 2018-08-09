@@ -85,6 +85,7 @@ Where:
 | file ctime (UTC) | ✔️ |
 | file atime (UTC) | ✔️ |
 | file size (bytes)| ✔️ |
+| MIME type | ✔️ |
 | Exif support  | ✔️ |
 | CSV export  | ✔️ |
 | Sqlite export  | ✔️ |

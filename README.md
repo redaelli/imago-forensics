@@ -12,12 +12,12 @@ Imago offers also the possibility to calculate [Error Level Analysis](https://bl
 ## Installation of the requirements via pip:
 
 To install imago requirements simply run:
-```
+```console
 pip install -r requirements.txt
 
 ```
 ## Requirements:
-```
+```console
 python 2.7
 exifread 2.1.2
 python-magic 0.4.15
@@ -29,7 +29,7 @@ imagehash 4.0
 ```
 # Usage
 
-```
+```console
 usage: imago.py [-h] -i INPUT [-x] [-g] [-e] [-n] [-d {md5,sha256,sha512,all}]
                 [-p {ahash,phash,dhash,whash,all}] [-o OUTPUT] [-s]
                 [-t {jpeg,tiff}]
@@ -64,7 +64,7 @@ You should also provide at least one type of extraction (i.e. exif, data, gps, d
 
 # Example:
 
-```
+```console
 python imago.py -i /home/solvent/cases/c23/DCIM/ -o /home/solvent/cases/c23/ -x -s -t jpeg -d all
 ```
 

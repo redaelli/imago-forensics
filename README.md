@@ -80,12 +80,12 @@ Where:
 
 | Task          | Status        |
 | ------------- |:-------------:|
+| Recursive directory navigation  | ✔️ |
 | file mtime (UTC) | ✔️ |
 | file ctime (UTC) | ✔️ |
 | file atime (UTC) | ✔️ |
 | file size (bytes)| ✔️ |
 | Exif support  | ✔️ |
-| Recursive directory navigation  | ✔️ |
 | CSV export  | ✔️ |
 | Sqlite export  | ✔️ |
 | md5, sha256, sha512  | ✔️ |
@@ -103,7 +103,7 @@ Where:
 # ToDo:
 | Task          | Status        |
 | ------------- |:-------------:|
-| Suggestion are welcome!  | ❌ |
+| Comments and Suggestions are welcome | 👍 |
 | Extract images from PDF | ❌ |
 | XMP support  | ❌ |
 

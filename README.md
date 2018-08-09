@@ -17,7 +17,7 @@ pip install -r requirements.txt
 
 ```
 ## Requirements:
-```console
+```
 python 2.7
 exifread 2.1.2
 python-magic 0.4.15
@@ -29,7 +29,7 @@ imagehash 4.0
 ```
 # Usage
 
-```console
+```
 usage: imago.py [-h] -i INPUT [-x] [-g] [-e] [-n] [-d {md5,sha256,sha512,all}]
                 [-p {ahash,phash,dhash,whash,all}] [-o OUTPUT] [-s]
                 [-t {jpeg,tiff}]

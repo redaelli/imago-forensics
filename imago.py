@@ -27,6 +27,7 @@ def main():
 	args = parser.parse_args()
 
 	if (args.exif or args.gps or args.ela or args.digest or args.nude or args.percentualhash):
+
 		filetype = ""
 		if (args.type == "jpeg"):
 			filetype = "image/jpeg"
@@ -45,6 +46,7 @@ def main():
 			print ("Processing %s" % (filename,))
 			# Creation of the SQLite row for the file
 			helper.image_row("evidences", filename)
+			extractor.basic_info(filename)
 			if args.nude:
 				extractor.detect_nudity(filename)
 			if args.gps:

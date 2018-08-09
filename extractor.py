@@ -8,6 +8,18 @@ from PIL.ExifTags import TAGS, GPSTAGS
 import imagehash
 import nude
 from nude import Nude
+import datetime
+
+
+
+def basic_info(filename):
+    print ("Extraction of basic information: %s" % (filename,))
+    statinfo = os.stat(filename)
+    helper.sqlite_insert("Size_Bytes",str(statinfo.st_size),os.path.basename(filename))
+    helper.sqlite_insert("Last_Modification_Time_UTC",str(datetime.datetime.utcfromtimestamp(statinfo.st_mtime).strftime("%Y-%m-%d %H:%M:%S")),os.path.basename(filename))
+    helper.sqlite_insert("Last_Access_Time_UTC",str(datetime.datetime.utcfromtimestamp(statinfo.st_atime).strftime("%Y-%m-%d %H:%M:%S")),os.path.basename(filename))
+    helper.sqlite_insert("Creation_Time_UTC",str(datetime.datetime.utcfromtimestamp(statinfo.st_ctime).strftime("%Y-%m-%d %H:%M:%S")),os.path.basename(filename))
+
 
 # Extraction of all exif data
 def exif_info(filename):

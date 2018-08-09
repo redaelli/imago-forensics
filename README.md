@@ -80,9 +80,11 @@ Where:
 
 | Task          | Status        |
 | ------------- |:-------------:|
+| file mtime (UTC) | ✔️ |
+| file ctime (UTC) | ✔️ |
+| file atime (UTC) | ✔️ |
+| file size (bytes)| ✔️ |
 | Exif support  | ✔️ |
-| JPEG support  | ✔️ |
-| Tiff support  | ✔️ |
 | Recursive directory navigation  | ✔️ |
 | CSV export  | ✔️ |
 | Sqlite export  | ✔️ |
@@ -96,10 +98,12 @@ Where:
 | [dHash](http://www.hackerfactor.com/blog/index.php?/archives/529-Kind-of-Like-That.html) | ✔️ |
 | [wHash](https://fullstackml.com/2016/07/02/wavelet-image-hash-in-python/)| ✔️ |
 
+
+
 # ToDo:
 | Task          | Status        |
 | ------------- |:-------------:|
-| Filesystem metadata support  | ❌ |
+| Suggestion are welcome!  | ❌ |
 | Extract images from PDF | ❌ |
 | XMP support  | ❌ |
 

@@ -128,6 +128,7 @@ def PIL_exif_data_GPS(filename):
 
         helper.sqlite_insert("Parsed_GPS_Latitude",str(latitude),os.path.basename(filename))
         helper.sqlite_insert("Parsed_GPS_Langitude",str(longitude),os.path.basename(filename))
+        return latitude, longitude
     else:
         print "GPS works only with JPEG"
     return None
@@ -159,7 +160,7 @@ def ahash(filename):
         helper.sqlite_insert("aHash",str(hash),os.path.basename(filename))
         return hash
     else:
-        print "aHash works only with image file"
+        print "aHash works only with images"
         return None
 
 #based on JohannesBuchner imagehash
@@ -171,7 +172,7 @@ def phash(filename):
         helper.sqlite_insert("pHash",str(hash),os.path.basename(filename))
         return hash
     else:
-        print "pHash works only with image file"
+        print "pHash works only with images"
         return None
 
 #based on JohannesBuchner imagehash
@@ -183,7 +184,7 @@ def whash(filename):
         helper.sqlite_insert("wHash",str(hash),os.path.basename(filename))
         return hash
     else:
-        print "wHash works only with image file"
+        print "wHash works only with image images"
         return None
 
 #based on JohannesBuchner imagehash
@@ -195,5 +196,5 @@ def dhash(filename):
         helper.sqlite_insert("dHash",str(hash),os.path.basename(filename))
         return hash
     else:
-        print "dHash vertical works only with image file"
+        print "dHash vertical works only with image images"
         return None

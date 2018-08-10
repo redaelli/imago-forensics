@@ -1,6 +1,6 @@
 [![forthebadge](https://forthebadge.com/images/badges/made-with-python.svg)](https://forthebadge.com) [![forthebadge](https://forthebadge.com/images/badges/built-with-love.svg)](https://forthebadge.com)
 
-[![Requirements Status](https://requires.io/github/redaelli/imago-forensics/requirements.svg?branch=master)](https://requires.io/github/redaelli/imago-forensics/requirements/?branch=master)
+[![Build Status](https://travis-ci.org/redaelli/imago-forensics.svg?branch=master)](https://travis-ci.org/redaelli/imago-forensics) [![Requirements Status](https://requires.io/github/redaelli/imago-forensics/requirements.svg?branch=master)](https://requires.io/github/redaelli/imago-forensics/requirements/?branch=master)
 [![GitHub license](https://img.shields.io/github/license/Day8/re-frame.svg?style=flat-square)](LICENSE)
 # imago-forensics 🕵️
 Imago is a python tool that extract digital evidences from images recursively.
@@ -23,7 +23,7 @@ $ python install.py build
 ```console
 $ python install.py install 
 ```
-4. Try if everything is working:
+4. Once installed, one new binary should be available: 
 
 ```console
 $ imago 
@@ -40,12 +40,12 @@ $ git clone https://github.com/redaelli/imago-forensics.git
 ```console
 $ pip install .
 ```
-3. Try if everything is working:
+3. Once installed, one new binary should be available: :
 
 ```console
 $ imago 
 ```
-And then it should output the imago's banner:
+And then it should output the imago's banner
 
 
 ## Requirements:

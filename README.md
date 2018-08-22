@@ -17,11 +17,11 @@ $ git clone https://github.com/redaelli/imago-forensics.git
 ```
 2. Build imago:
 ```console
-$ python install.py build 
+$ python setup.py build 
 ```
 3. Install imago:
 ```console
-$ python install.py install 
+$ python setup.py install 
 ```
 4. Once installed, one new binary should be available: 
 

@@ -141,8 +141,6 @@ Where:
 | ------------- |:-------------:|
 | **Test code** | ❌ |
 | Comments and Suggestions are welcome | 👍 |
-| Extract images from PDF | ❌ |
-| XMP support  | ❌ |
 
 
 ## 📑 Copyright and Licenses

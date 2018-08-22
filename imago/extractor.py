@@ -110,6 +110,8 @@ def PIL_exif_data_GPS(filename):
                     exif_data[decoded] = value
         if "GPSInfo" in exif_data:
             gps_info = exif_data["GPSInfo"]
+            gps_longitude = ""
+            gps_latitude = ""
             if "GPSLatitude" in gps_info:
                 gps_latitude = gps_info["GPSLatitude"]
             if "GPSLatitudeRef" in gps_info:
@@ -126,17 +128,19 @@ def PIL_exif_data_GPS(filename):
                 if gps_longitude_ref != "E":
                     longitude = 0 - longitude
 
-
-        geolocator = Nominatim(user_agent="specify_your_app_name_here")
-        ls = str(latitude)+","+str(longitude)
         helper.sqlite_insert("Parsed_GPS_Latitude",str(latitude),os.path.basename(filename))
         helper.sqlite_insert("Parsed_GPS_Langitude",str(longitude),os.path.basename(filename))
 
-        #Full address:
-        location = geolocator.reverse(ls)
-        address = location.raw["address"]
-        for a in address.keys():
-            helper.sqlite_insert(a,str(address[a]),os.path.basename(filename))
+        try:
+            if latitude != None and longitude != None:
+                geolocator = Nominatim(user_agent="imago-forensics")
+                ls = str(latitude)+","+str(longitude)
+                location = geolocator.reverse(ls)
+                address = location.raw["address"]
+                for a in address.keys():
+                    helper.sqlite_insert(a,str(address[a]),os.path.basename(filename))
+        except:
+    		print "Problem during geopy decode"
 
         return latitude, longitude
     else:

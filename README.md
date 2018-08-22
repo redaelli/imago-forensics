@@ -97,7 +97,7 @@ You should also provide at least one type of extraction (i.e. exif, data, gps, d
 # Example:
 
 ```console
-imago -i /home/solvent/cases/c23/DCIM/ -o /home/solvent/cases/c23/ -x -s -t jpeg -d all
+$ imago -i /home/solvent/cases/c23/DCIM/ -o /home/solvent/cases/c23/ -x -s -t jpeg -d all
 ```
 
 Where:

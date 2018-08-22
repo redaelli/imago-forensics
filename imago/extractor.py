@@ -9,7 +9,7 @@ import imagehash
 import nude
 from nude import Nude
 import datetime
-
+from geopy.geocoders import Nominatim
 
 
 def basic_info(filename):
@@ -126,8 +126,18 @@ def PIL_exif_data_GPS(filename):
                 if gps_longitude_ref != "E":
                     longitude = 0 - longitude
 
+
+        geolocator = Nominatim(user_agent="specify_your_app_name_here")
+        ls = str(latitude)+","+str(longitude)
         helper.sqlite_insert("Parsed_GPS_Latitude",str(latitude),os.path.basename(filename))
         helper.sqlite_insert("Parsed_GPS_Langitude",str(longitude),os.path.basename(filename))
+
+        #Full address:
+        location = geolocator.reverse(ls)
+        address = location.raw["address"]
+        for a in address.keys():
+            helper.sqlite_insert(a,str(address[a]),os.path.basename(filename))
+
         return latitude, longitude
     else:
         print "GPS works only with JPEG"

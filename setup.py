@@ -18,7 +18,7 @@ REQUIRES_PYTHON = '>=2.7.0'
 VERSION = '1.0.0'
 
 # What packages are required for this module to be executed?
-REQUIRED = ['exifread==2.1.2', 'python-magic==0.4.15','argparse==1.4.0','pillow==5.2.0','nudepy==0.4','imagehash==4.0']
+REQUIRED = ['exifread==2.1.2', 'python-magic==0.4.15','argparse==1.4.0','pillow==5.2.0','nudepy==0.4','imagehash==4.0','geopy==1.16.0']
 
 EXTRAS = {
 }

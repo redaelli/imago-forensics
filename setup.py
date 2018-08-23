@@ -15,9 +15,8 @@ URL = 'https://github.com/redaelli/imago-forensics'
 EMAIL = 'me@example.com'
 AUTHOR = 'Matteo Redaelli'
 REQUIRES_PYTHON = '>=2.7.0'
-VERSION = '1.0.0'
+VERSION = '1.0.1'
 
-# What packages are required for this module to be executed?
 REQUIRED = ['exifread==2.1.2', 'python-magic==0.4.15','argparse==1.4.0','pillow==5.2.0','nudepy==0.4','imagehash==4.0','geopy==1.16.0']
 
 EXTRAS = {
@@ -25,15 +24,12 @@ EXTRAS = {
 
 here = os.path.abspath(os.path.dirname(__file__))
 
-# Import the README and use it as the long-description.
-# Note: this will only work if 'README.md' is present in your MANIFEST.in file!
 try:
     with io.open(os.path.join(here, 'README.md'), encoding='utf-8') as f:
         long_description = '\n' + f.read()
 except FileNotFoundError:
     long_description = DESCRIPTION
 
-# Load the package's __version__.py module as a dictionary.
 about = {}
 if not VERSION:
     with open(os.path.join(here, NAME, '__version__.py')) as f:
@@ -79,7 +75,6 @@ class UploadCommand(Command):
         sys.exit()
 
 
-# Where the magic happens:
 setup(
     name=NAME,
     version=about['__version__'],

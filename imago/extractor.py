@@ -110,8 +110,8 @@ def PIL_exif_data_GPS(filename):
                     exif_data[decoded] = value
         if "GPSInfo" in exif_data:
             gps_info = exif_data["GPSInfo"]
-            gps_longitude = ""
-            gps_latitude = ""
+            gps_longitude = None
+            gps_latitude = None
             if "GPSLatitude" in gps_info:
                 gps_latitude = gps_info["GPSLatitude"]
             if "GPSLatitudeRef" in gps_info:

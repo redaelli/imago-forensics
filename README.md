@@ -87,7 +87,7 @@ Where:
 
 # Features:
 
-| Task          | Status        |
+| Functionality | Status        |
 | ------------- |:-------------:|
 | Recursive directory navigation  | ✔️ |
 | file mtime (UTC) | ✔️ |

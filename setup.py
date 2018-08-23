@@ -12,10 +12,10 @@ from setuptools import find_packages, setup, Command
 NAME = 'imago'
 DESCRIPTION = 'Imago is a python tool that extract digital evidences from images.'
 URL = 'https://github.com/redaelli/imago-forensics'
-EMAIL = 'me@example.com'
+EMAIL = 'solventdev@gmail.com'
 AUTHOR = 'Matteo Redaelli'
 REQUIRES_PYTHON = '>=2.7.0'
-VERSION = '1.0.1'
+VERSION = '1.0.2'
 
 REQUIRED = ['exifread==2.1.2', 'python-magic==0.4.15','argparse==1.4.0','pillow==5.2.0','nudepy==0.4','imagehash==4.0','geopy==1.16.0']
 
@@ -86,12 +86,8 @@ setup(
     python_requires=REQUIRES_PYTHON,
     url=URL,
     packages=find_packages(exclude=('tests',)),
-    # If your package is a single module, use this instead of 'packages':
-    # py_modules=['mypackage'],
 
-    # entry_points={
-    #     'console_scripts': ['mycli=mymodule:cli'],
-    # },
+    entry_points={'console_scripts': ['imago = imago.__main__:main']},
     install_requires=REQUIRED,
     extras_require=EXTRAS,
     include_package_data=True,

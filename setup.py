@@ -15,7 +15,7 @@ URL = 'https://github.com/redaelli/imago-forensics'
 EMAIL = 'solventdev@gmail.com'
 AUTHOR = 'Matteo Redaelli'
 REQUIRES_PYTHON = '>=2.7.0'
-VERSION = '1.0.3'
+VERSION = '1.0.5'
 
 REQUIRED = ['exifread==2.1.2', 'python-magic==0.4.15','argparse==1.4.0','pillow==5.2.0','nudepy==0.4','imagehash==4.0','geopy==1.16.0']
 

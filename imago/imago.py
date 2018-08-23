@@ -16,6 +16,8 @@ def main(args=None):
 # Twitter: @solventred                           #
 ##################################################
 	"""
+	if args is None:
+		args = sys.argv[1:]
 	parser = argparse.ArgumentParser()
 	parser.add_argument('-i','--input', help='Input directory path', type=str, required=True)
 	parser.add_argument('-x','--exif', help='Extract exif metadata', action='store_true')

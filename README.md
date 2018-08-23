@@ -9,38 +9,14 @@ Imago offers also the possibility to calculate Error Level Analysis, and to dete
 
 # Setup
 
-## Setup via setup.py
-
-1. Clone the repository and move inside it:
-```console
-$ git clone https://github.com/redaelli/imago-forensics.git
-```
-2. Build imago:
-```console
-$ python setup.py build 
-```
-3. Install imago:
-```console
-$ python setup.py install 
-```
-4. Once installed, one new binary should be available: 
-
-```console
-$ imago 
-```
-And then it should output the imago's banner.
-
 ## Setup via pip
 
-1. Clone the repository and move inside it:
-```console
-$ git clone https://github.com/redaelli/imago-forensics.git
 ```
-2. Install imago:
+1. Install imago:
 ```console
-$ pip install .
+$ pip install imago
 ```
-3. Once installed, one new binary should be available: :
+2. Once installed, one new binary should be available: :
 
 ```console
 $ imago 

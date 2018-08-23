@@ -33,6 +33,7 @@ argparse 1.4.0
 pillow 5.2.0
 nudepy 0.4
 imagehash 4.0
+geopy 1.16.0
 
 ```
 # Usage

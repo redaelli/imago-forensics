@@ -7,7 +7,7 @@ import extractor
 import helper
 from os import walk
 
-def main():
+def main(args=None):
 	print """\
 ##################################################
 # imago.py                                       #

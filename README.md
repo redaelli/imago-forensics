@@ -11,8 +11,8 @@ Imago offers also the possibility to calculate Error Level Analysis, and to dete
 
 ## Setup via pip
 
-```
 1. Install imago:
+
 ```console
 $ pip install imago
 ```

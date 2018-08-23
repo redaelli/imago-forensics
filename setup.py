@@ -87,7 +87,7 @@ setup(
     url=URL,
     packages=find_packages(exclude=('tests',)),
 
-    entry_points={'console_scripts': ['imago = imago.__main__:main']},
+    entry_points={'console_scripts': ['imago = imago.imago:main']},
     install_requires=REQUIRED,
     extras_require=EXTRAS,
     include_package_data=True,

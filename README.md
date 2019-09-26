@@ -27,13 +27,13 @@ And then it should output the imago's banner
 ## Requirements:
 ```
 python 2.7
-exifread 2.1.2
-python-magic 0.4.15
-argparse 1.4.0
-pillow 5.2.0
-nudepy 0.4
-imagehash 4.0
-geopy 1.16.0
+exifread >= 2.1.2
+python-magic >= 0.4.15
+argparse >= 1.4.0
+pillow >= 5.2.0
+nudepy >= 0.4
+imagehash >= 4.0
+geopy >= 1.16.0
 
 ```
 # Usage

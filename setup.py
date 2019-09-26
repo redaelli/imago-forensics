@@ -10,17 +10,24 @@ from setuptools import find_packages, setup, Command
 
 # Package meta-data.
 NAME = 'imago'
-DESCRIPTION = 'Imago is a python tool that extract digital evidences from images.'
+DESCRIPTION = 'Imago is a Python tool that extract digital evidences from images.'
 URL = 'https://github.com/redaelli/imago-forensics'
 EMAIL = 'solventdev@gmail.com'
 AUTHOR = 'Matteo Redaelli'
 REQUIRES_PYTHON = '>=2.7.0'
 VERSION = '1.0.5'
 
-REQUIRED = ['exifread==2.1.2', 'python-magic==0.4.15','argparse==1.4.0','pillow==5.2.0','nudepy==0.4','imagehash==4.0','geopy==1.16.0']
+REQUIRED = [
+    'exifread>=2.1.2',
+    'python-magic>=0.4.15',
+    'argparse>=1.4.0',
+    'pillow>=5.2.0',
+    'nudepy>=0.4',
+    'imagehash>=4.0',
+    'geopy>=1.16.0',
+]
 
-EXTRAS = {
-}
+EXTRAS = {}
 
 here = os.path.abspath(os.path.dirname(__file__))
 
@@ -57,18 +64,18 @@ class UploadCommand(Command):
 
     def run(self):
         try:
-            self.status('Removing previous builds…')
+            self.status('Removing previous builds...')
             rmtree(os.path.join(here, 'dist'))
         except OSError:
             pass
 
-        self.status('Building Source and Wheel (universal) distribution…')
+        self.status('Building Source and Wheel (universal) distribution...')
         os.system('{0} setup.py sdist bdist_wheel --universal'.format(sys.executable))
 
-        self.status('Uploading the package to PyPI via Twine…')
+        self.status('Uploading the package to PyPI via Twine...')
         os.system('twine upload dist/*')
 
-        self.status('Pushing git tags…')
+        self.status('Pushing git tags...')
         os.system('git tag v{0}'.format(about['__version__']))
         os.system('git push --tags')
 
@@ -86,12 +93,10 @@ setup(
     python_requires=REQUIRES_PYTHON,
     url=URL,
     packages=find_packages(exclude=('tests',)),
-
     entry_points={'console_scripts': ['imago = imago.imago:main']},
     install_requires=REQUIRED,
     extras_require=EXTRAS,
     include_package_data=True,
-    #scripts=['bin/imago'],
     classifiers=[
         # Trove classifiers
         # Full list: https://pypi.python.org/pypi?%3Aaction=list_classifiers
@@ -99,7 +104,6 @@ setup(
         'Programming Language :: Python :: 2.7',
         'Programming Language :: Python :: Implementation :: PyPy'
     ],
-    # $ setup.py publish support.
     cmdclass={
         'upload': UploadCommand,
     },

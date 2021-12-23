@@ -69,7 +69,7 @@ def sha512(filename):
 #modified version of a gist by: https://github.com/ewencp
 ##BETA##
 def ela(filename, output_path):
-    print "****ELA is in BETA****"
+    print ("****ELA is in BETA****")
     if magic.from_file(filename, mime=True) == "image/jpeg":
         quality_level = 85
         tmp_img = os.path.join(output_path,os.path.basename(filename)+".tmp.jpg")
@@ -85,7 +85,7 @@ def ela(filename, output_path):
         ela_image.save(ela)
         os.remove(tmp_img)
     else:
-        print "ELA works only with JPEG"
+        print ("ELA works only with JPEG")
 
 
 #Modified version of a gist by: https://github.com/erans
@@ -140,11 +140,11 @@ def PIL_exif_data_GPS(filename):
                 for a in address.keys():
                     helper.sqlite_insert(a,str(address[a]),os.path.basename(filename))
         except:
-    		print "Problem during geopy decode"
+            print ("Problem during geopy decode")
 
         return latitude, longitude
     else:
-        print "GPS works only with JPEG"
+        print ("GPS works only with JPEG")
     return None
 
 
@@ -160,7 +160,7 @@ def detect_nudity(filename):
         helper.sqlite_insert("Nudity",nudity,os.path.basename(filename))
         return nudity
     else:
-        print "Nudity Detection works only with JPEG"
+        print ("Nudity Detection works only with JPEG")
         return None
 
 #based on JohannesBuchner imagehash
@@ -174,7 +174,7 @@ def ahash(filename):
         helper.sqlite_insert("aHash",str(hash),os.path.basename(filename))
         return hash
     else:
-        print "aHash works only with images"
+        print ("aHash works only with images")
         return None
 
 #based on JohannesBuchner imagehash
@@ -186,7 +186,7 @@ def phash(filename):
         helper.sqlite_insert("pHash",str(hash),os.path.basename(filename))
         return hash
     else:
-        print "pHash works only with images"
+        print ("pHash works only with images")
         return None
 
 #based on JohannesBuchner imagehash
@@ -198,7 +198,7 @@ def whash(filename):
         helper.sqlite_insert("wHash",str(hash),os.path.basename(filename))
         return hash
     else:
-        print "wHash works only with image images"
+        print ("wHash works only with image images")
         return None
 
 #based on JohannesBuchner imagehash
@@ -210,5 +210,5 @@ def dhash(filename):
         helper.sqlite_insert("dHash",str(hash),os.path.basename(filename))
         return hash
     else:
-        print "dHash vertical works only with image images"
+        print ("dHash vertical works only with image images")
         return None

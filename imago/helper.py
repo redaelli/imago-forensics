@@ -19,7 +19,7 @@ def initialize_sqli(*arg):
 			     (filename text )''')
 		conn.commit()
 	except:
-		print "Problem during table creation"
+		print ("Problem during table creation")
 	finally:
 		c.close()
 	return True

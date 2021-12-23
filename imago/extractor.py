@@ -1,6 +1,6 @@
 import os,sys
 import exifread
-import helper
+from imago import helper
 import hashlib
 import magic
 from PIL import Image, ImageChops, ImageEnhance

@@ -8,14 +8,14 @@ import helper
 from os import walk
 
 def main(args=None):
-	print """\
+	print ("""\
 ##################################################
 # imago.py                                       #
 # Digital evidences from images!                 #
 # Made with <3 by Matteo Redaelli                #
 # Twitter: @solventred                           #
 ##################################################
-	"""
+	""")
 	if args is None:
 		args = sys.argv[1:]
 	parser = argparse.ArgumentParser()

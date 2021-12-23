@@ -1,6 +1,6 @@
 import os,sys
 import exifread
-from imago import helper
+import helper
 import hashlib
 import magic
 from PIL import Image, ImageChops, ImageEnhance
@@ -13,6 +13,7 @@ from geopy.geocoders import Nominatim
 
 
 def basic_info(filename):
+    exit("quitting ...")
     print ("Extraction of basic information: %s" % (filename,))
     statinfo = os.stat(filename)
     mime = magic.from_file(filename, mime=True)

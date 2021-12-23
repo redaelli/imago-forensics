@@ -1,3 +1,20 @@
+# to install pillow on linux mint
+# use this url : https://gist.github.com/DavidToca/6063298
+# if you get error
+# about liblcms1-dev and libjpeg62-dev;
+# then change liblcms1-dev to liblcms2-dev
+# and do
+# sudo apt-get install aptitude
+# sudo aptitude install libjpeg62-dev
+# to install libjpeg62-dev
+# if wheel issues come up
+# try
+# -------------------------------------
+# sudo apt-get install gcc libpq-dev -y
+# sudo apt-get install python-dev  python-pip -y
+# sudo apt-get install python3-dev python3-pip python3-venv python3-wheel -y
+# pip3 install wheel
+
 exifread>=2.1.2
 python-magic>=0.4.15
 argparse>=1.4.0
